@@ -1,0 +1,30 @@
+{
+  "name": "lyk.lol",
+  "version": "1.0.0",
+  "description": "lyk.lol is a lightweight web app that allows you to easily shorten URLs. ✂️",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mongoose": "^7.1.0",
+    "socket.io": "^4.6.1",
+    "vhost": "^3.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slaterleonardo/lyk.lol.git"
+  },
+  "bugs": {
+    "url": "https://github.com/slaterleonardo/lyk.lol/issues"
+  },
+  "homepage": "https://github.com/slaterleonardo/lyk.lol#readme"
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/header.ejs', {css: '/css/style.css', description: '"Shorten and share your links with ease! 🧙‍♂️"'}) %>
+
+<body>
+    <h1><b>LYK</b>.LOL 😄</h1>
+    <p>Shorten and share your links with ease! 🧙‍♂️</p>
+    <% if (locals.total_links) { %>
+        <p>🔥 <b><%= total_links %></b> links shortened so far 🔥</p>
+    <% } %>
+    <div class="app">
+        <form id="link-form" action="/" method="POST">
+            <input type="text" name="link" placeholder="Enter your link" value="<%= locals.user_input && user_input %>" />
+            <input type="submit" value="Shorten your link" class="g-recaptcha" data-sitekey=<%= locals.site_key %> data-callback="onSubmit" />
+        </form>
+        <% if (locals.success) { %>
+            <div class="success">
+                <%= success %>
+                <a class="link">🔥 <%= link %> 🔥</a>
+                <small>* click the link to copy it 😉 *</small>
+            </div>
+        <% } %>
+        <% if (locals.error) { %>
+            <div class="error"><%= error %></div>
+        <% } %>
+    </div>
+    <div class="annoucement">
+        <p>Check out <a href="https://dir.lyk.lol">dir.lyk.lol</a> ❤️</p>
+    </div>
+</body>
+
+<script>
+    function onSubmit(token) {
+        document.getElementById("link-form").submit();
+    }
+</script>
+
+<%- include('../partials/footer.ejs') %>
+</html>

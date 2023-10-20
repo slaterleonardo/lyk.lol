@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/header.ejs', {css: '/css/txt.css', description: '"Create and share pastes with ease! 🧙‍♂️"'}) %>
+
+<body>
+    <h1>TXT.<b>LYK</b>.LOL 😄</h1>
+    <p>Create and share pastes with ease! 🧙‍♂️</p>
+    <% if (locals.total_pastes) { %>
+        <p>🔥 <b><%= total_pastes %></b> Pastes created so far 🔥</p>
+    <% } %>
+    <div class="app">
+        <form id="txt-form" action="/" method="POST">
+            <textarea type="text" name="text" placeholder="Enter your text"><%= locals.user_input && user_input %></textarea>
+            <label class="checkbox">
+                <input type="checkbox" name="self_destruct" />
+                <span class="label-text">Self Destruct After Read</span>
+              </label>
+            <input type="submit" value="Create paste" class="g-recaptcha" data-sitekey=<%= locals.site_key %> data-callback="onSubmit" />
+        </form>
+        <% if (locals.success) { %>
+            <div class="success">
+                <%= success %>
+                <a class="link">🔥 <%= link %> 🔥</a>
+                <small>* click the link to copy it 😉 *</small>
+            </div>
+        <% } %>
+        <% if (locals.error) { %>
+            <div class="error"><%= error %></div>
+        <% } %>
+    </div>
+</body>
+
+<script>
+    function onSubmit(token) {
+        document.getElementById("txt-form").submit();
+    }
+</script>
+
+<%- include('../partials/footer.ejs') %>
+</html>

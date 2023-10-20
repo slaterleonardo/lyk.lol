@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/header.ejs', {css: '/css/dir.css', description: '"List apps on lyk.lol! 🧙‍♂️"'}) %>
+
+<body>
+    <h1>DIR.<b>LYK</b>.LOL 😄</h1>
+    <p>List apps on lyk.lol! 🧙‍♂️</p>
+    <div class="app">
+        <% for (const [key, value] of Object.entries(apps)) { %>
+            <h2><a href="https://<%= key %>"><%= key %></a></h2>
+            <p><%= value %></p>
+        <% } %>
+    </div>
+</body>
+
+<%- include('../partials/footer.ejs') %>
+</html>

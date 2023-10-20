@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/header.ejs', {css: '/css/clean.css', description: '"Clean and sort pastes with ease! 🧙‍♂️"'}) %>
+
+<body>
+    <h1>CLEAN.<b>LYK</b>.LOL 😄</h1>
+    <p>Clean and sort text with ease! 🧙‍♂️</p>
+    <div class="app">
+        <textarea type="text" name="text" placeholder="Enter text to clean"><%= locals.user_input && user_input %></textarea>
+        <input type="button" id="clean" value="Remove Duplicates" />
+        <input type="button" id="sort" value="Sort Text (A-Z)" />
+    </div>
+</body>
+
+<script>
+    $("#clean").click(function(e) {
+        const textarea = $("textarea[name='text']");
+
+        let text = textarea.val().split(/\r?\n/);
+        text = [...new Set(text.map(str => str.toLowerCase()))];
+        text = text.filter(str => str !== "");
+
+        textarea.val(text.join("\n"));
+    });
+
+    $("#sort").click(function(e) {
+        const textarea = $("textarea[name='text']");
+
+        let text = textarea.val().split(/\r?\n/);
+        text.sort()
+
+        textarea.val(text.join("\n"));
+
+    });
+</script>
+
+<%- include('../partials/footer.ejs') %>
+</html>
