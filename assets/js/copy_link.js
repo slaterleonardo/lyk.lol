@@ -14,6 +14,5 @@ $("a.link").click( async function(e) {
 
     setTimeout(() => {
         $(this).text('🔥 ' + link + ' 🔥');
-    }
-    , 2000);
+    }, 2000);
 })
