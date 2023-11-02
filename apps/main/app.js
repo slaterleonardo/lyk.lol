@@ -19,7 +19,6 @@ app.post('/', function(req, res) {
     }
 
     const user_input = link;
-
     const valid_url = /\b(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(\/\S*)?\b/g.test(link);
 
     if (!valid_url) {
