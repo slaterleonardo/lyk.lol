@@ -29,6 +29,7 @@ lyk.lol is built using the following technologies:
 - HTML
 - CSS
 - JavaScript
+- jQuery
 
 The backend is developed using:
 
