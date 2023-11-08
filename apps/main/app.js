@@ -14,9 +14,11 @@ app.get('/', function(req, res) {
 app.post('/', function(req, res) {
     let { link } = req.body;
 
-    if (!link) {
+    if (!link || typeof link != "string") {
         return res.render('index', { error: 'Please provide a link 😔' });
     }
+
+    link = link.toLowerCase()
 
     const user_input = link;
     const valid_url = /\b(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(\/\S*)?\b/g.test(link);
