@@ -1,4 +1,4 @@
-const database = require("../../model/Link");
+const database = require("../../models/Link");
 const express = require('express');
 const axios = require('axios');
 const app = express.Router();
@@ -21,7 +21,7 @@ app.post('/', function(req, res) {
     link = link.toLowerCase()
 
     const user_input = link;
-    const valid_url = /\b(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(\/\S*)?\b/g.test(link);
+    const valid_url = /^(https?:\/\/)?(www\.)?[^\/\s]+\/?$/.test(link);
 
     if (!valid_url) {
         return res.render('index', { error: 'The link you entered looks to be invalid 😔', user_input });

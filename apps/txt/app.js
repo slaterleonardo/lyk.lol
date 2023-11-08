@@ -1,4 +1,4 @@
-const database = require("../../model/Paste");
+const database = require("../../models/Paste");
 const express = require('express');
 const axios = require('axios');
 const app = express.Router();
