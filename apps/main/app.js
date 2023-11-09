@@ -18,14 +18,15 @@ app.post('/', function(req, res) {
         return res.render('index', { error: 'Please provide a link 😔' });
     }
 
-    link = link.toLowerCase()
-
     const user_input = link;
-    const valid_url = /^(https?:\/\/)?(www\.)?[^\/\s]+\/?.*?$/.test(link);
 
-    if (!valid_url) {
+    link = link.match(/\b(?:http(?:s)?:\/\/)?(?:www\.)?([a-zA-Z0-9-]{1,63}\.){1,127}(?:[a-zA-Z]{2,63})(?:\/[^\s]*)?\b/)
+
+    if (!link) {
         return res.render('index', { error: 'The link you entered looks to be invalid 😔', user_input });
     }
+
+    link = link[0]
 
     if (!link.includes('http://') && !link.includes('https://')) {
         link = 'https://' + link;
