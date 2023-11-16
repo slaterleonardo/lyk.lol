@@ -30,6 +30,18 @@
     <% } else { %>
         <div>No post data found</div>
     <% } %>
+
+    <h3>This form will create a POST request with the data you enter</h3>
+    
+    <!-- form to post -->
+    <form action="/" method="post">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" />
+      <br />
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" />
+      <br />
+      <input type="submit" value="Submit" />
     </div>
     
   </body>
