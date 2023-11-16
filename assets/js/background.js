@@ -7,8 +7,8 @@ const pastelColors = [
     '#C5C5A5',
     '#C5A5C5',
     '#A5C5C5',
-  ];
-  
+];
+
 async function changeBackgroundColor() {
     const colorIndex = Math.floor(Math.random() * pastelColors.length);
     const color = pastelColors[colorIndex];
@@ -16,4 +16,3 @@ async function changeBackgroundColor() {
 }
 
 changeBackgroundColor();
-  

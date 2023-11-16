@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/header.ejs', {css: '/css/ctf.css', description: '"CTFrequest labs! 🧙‍♂️"'}) %>
+
+  <body>
+    <h1>CTF Lab: HTTP/HTTPS Requests</h1>
+    <br />
+    <div class="app">
+      <h2>URL Query:</h2>
+      <p>
+        if your request has any query strings in the URL they will be listed
+        below:
+      </p>
+      <% if (locals.url_query) { %>
+        <% for (const [key, value] of Object.entries(url_query)) { %>
+            <div><b><%= key %></b>: <%= value %></div>
+        <% } %>
+      <% } else { %>
+        <div>No query strings found</div>
+      <% } %>
+    <br/>
+    <h2>Post Data:</h2>
+    <p>
+      if your request has any post data it will be listed below:
+    </p>
+    <% if (locals.post_data) { %>
+      <% for (const [key, value] of Object.entries(post_data)) { %>
+          <div><b><%= key %></b>: <%= value %></div>
+      <% } %>
+    <% } else { %>
+        <div>No post data found</div>
+    <% } %>
+    </div>
+    
+  </body>
+</html>
